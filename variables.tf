@@ -1,3 +1,4 @@
+# variable vpc 
 variable "vpc_name" {
   description = "VPC Name"
   type = string 
@@ -53,7 +54,7 @@ variable "vpc_single_nat_gateway" {
 variable "cluster_name" {
   description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
   type        = string
-  default     = "eksdemo"
+  default     = "cluster-eks"
 }
 
 variable "business_divsion" {
@@ -64,5 +65,36 @@ variable "business_divsion" {
     Environment = "Dev"
     Project     = "EKS"
   }
+}
+
+# variable ec2 
+variable "instance_type" {
+  description = "EC2 Instance Type"
+  type = string
+  default = "t3.micro"  
+}
+
+variable "instance_keypair" {
+  description = "AWS EC2 Key pair that need to be associated with EC2 Instance"
+  type = string
+  default = "k8s"
+}
+
+variable "private_instance_count" {
+  description = "AWS EC2 Private Instances Count"
+  type = number
+  default = 1  
+}
+
+variable "aws_region" {
+  description = "Region in which AWS Resources to be created"
+  type = string
+  default = "us-east-1"  
+}
+
+variable "environment" {
+  description = "Environment Variable used as a prefix"
+  type = string
+  default = "dev"
 }
 
