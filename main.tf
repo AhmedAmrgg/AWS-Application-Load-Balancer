@@ -16,23 +16,13 @@ module "vpc" {
   enable_dns_support   = true
   tags = var.business_divsion
   vpc_tags = var.business_divsion
-
-  public_subnet_tags = {
-    Type = "Public Subnets"
-    "kubernetes.io/role/elb" = 1    
-    "kubernetes.io/cluster/${var.cluster_name}" = "shared"        
-  }
-  private_subnet_tags = {
-    Type = "private-subnets"
-    "kubernetes.io/role/internal-elb" = 1    
-    "kubernetes.io/cluster/${var.cluster_name}" = "shared"    
-  }
-
   database_subnet_tags = {
     Type = "database-subnets"
   }
   map_public_ip_on_launch = true
 }
+
+
 #seurity group 
 module "public_bastion_sg" {
   source  = "terraform-aws-modules/security-group/aws"

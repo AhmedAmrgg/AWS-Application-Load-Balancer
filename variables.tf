@@ -51,12 +51,6 @@ variable "vpc_single_nat_gateway" {
   default = true
 }
 
-variable "cluster_name" {
-  description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
-  type        = string
-  default     = "cluster-eks"
-}
-
 variable "business_divsion" {
   description = "Common tags for resources"
   type        = map(string)
