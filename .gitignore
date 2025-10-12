@@ -1,0 +1,17 @@
+# Terraform files to ignore
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local variable or config files
+*.tfvars
+*.tfvars.json
+
+# Sensitive info
+*.pem
+*.key

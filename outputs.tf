@@ -30,25 +30,58 @@ output "azs" {
 }
 
 # output ec2 
+# AWS EC2 Instance Terraform Outputs
+# Public EC2 Instances - Bastion Host
+
+## ec2_bastion_public_instance_ids
 output "ec2_bastion_public_instance_ids" {
-  description = "EC2 instance ID"
+  description = "List of IDs of instances"
   value       = module.ec2_public.id
 }
 
+## ec2_bastion_public_ip
 output "ec2_bastion_public_ip" {
-  description = "Public IP address EC2 instance"
+  description = "List of public IP addresses assigned to the instances"
   value       = module.ec2_public.public_ip 
 }
 
-output "ec2_private_instance_ids" {
+# App1 - Private EC2 Instances
+## ec2_private_instance_ids
+output "app1_ec2_private_instance_ids" {
   description = "List of IDs of instances"
-  value = [for ec2private in module.ec2_private: ec2private.id ]   
+  value = [for ec2private in module.ec2_private_app1: ec2private.id ]  
+}
+## ec2_private_ip
+output "app1_ec2_private_ip" {
+  description = "List of private IP addresses assigned to the instances"
+  value = [for ec2private in module.ec2_private_app1: ec2private.private_ip ]  
 }
 
-output "ec2_private_ip" {
-  description = "List of private IP addresses assigned to the instances"
-  value = [for ec2private in module.ec2_private: ec2private.private_ip ]  
+# App2 - Private EC2 Instances
+## ec2_private_instance_ids
+output "app2_ec2_private_instance_ids" {
+  description = "List of IDs of instances"
+  value = [for ec2private in module.ec2_private_app2: ec2private.id ]  
 }
+## ec2_private_ip
+output "app2_ec2_private_ip" {
+  description = "List of private IP addresses assigned to the instances"
+  value = [for ec2private in module.ec2_private_app2: ec2private.private_ip ]    
+}
+
+# App3 - Private EC2 Instances
+## ec2_private_instance_ids
+output "app3_ec2_private_instance_ids" {
+  description = "List of IDs of instances"
+  value = [for ec2private in module.ec2_private_app3: ec2private.id ]  
+}
+## ec2_private_ip
+output "app3_ec2_private_ip" {
+  description = "List of private IP addresses assigned to the instances"
+  value = [for ec2private in module.ec2_private_app3: ec2private.private_ip ]  
+}
+
+
 
 # output sg 
 output "public_bastion_sg_group_id" {
@@ -123,3 +156,87 @@ output "target_groups" {
   description = "Map of target groups created and their attributes"
   value       = module.alb.target_groups
 }
+
+# RDS DB Outputs
+output "db_instance_address" {
+  description = "The address of the RDS instance"
+  value       = module.rdsdb.db_instance_address
+}
+
+output "db_instance_arn" {
+  description = "The ARN of the RDS instance"
+  value       = module.rdsdb.db_instance_arn
+}
+
+output "db_instance_availability_zone" {
+  description = "The availability zone of the RDS instance"
+  value       = module.rdsdb.db_instance_availability_zone
+}
+
+output "db_instance_endpoint" {
+  description = "The connection endpoint"
+  value       = module.rdsdb.db_instance_endpoint
+}
+
+output "db_instance_hosted_zone_id" {
+  description = "The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record)"
+  value       = module.rdsdb.db_instance_hosted_zone_id
+}
+
+output "db_instance_id" {
+  description = "The RDS instance ID"
+  value       = module.rdsdb.db_instance_identifier
+
+}
+
+output "db_instance_resource_id" {
+  description = "The RDS Resource ID of this instance"
+  value       = module.rdsdb.db_instance_resource_id
+}
+
+output "db_instance_status" {
+  description = "The RDS instance status"
+  value       = module.rdsdb.db_instance_status
+}
+
+output "db_instance_name" {
+  description = "The database name"
+  value       = module.rdsdb.db_instance_name
+}
+
+output "db_instance_username" {
+  description = "The master username for the database"
+  value       = module.rdsdb.db_instance_username
+  sensitive   = true
+}
+
+output "db_instance_port" {
+  description = "The database port"
+  value       = module.rdsdb.db_instance_port
+}
+
+output "db_subnet_group_id" {
+  description = "The db subnet group name"
+  value       = module.rdsdb.db_subnet_group_id
+}
+
+output "db_subnet_group_arn" {
+  description = "The ARN of the db subnet group"
+  value       = module.rdsdb.db_subnet_group_arn
+}
+
+output "db_parameter_group_id" {
+  description = "The db parameter group id"
+  value       = module.rdsdb.db_parameter_group_id
+}
+
+output "db_parameter_group_arn" {
+  description = "The ARN of the db parameter group"
+  value       = module.rdsdb.db_parameter_group_arn
+}
+
+output "db_enhanced_monitoring_iam_role_arn" {
+  description = "The Amazon Resource Name (ARN) specifying the monitoring role"
+  value       = module.rdsdb.enhanced_monitoring_iam_role_arn
+}
+

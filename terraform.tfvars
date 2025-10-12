@@ -1,4 +1,3 @@
-# VPC Variables
 vpc_name = "myvpc"
 vpc_cidr_block = "10.0.0.0/16"
 vpc_availability_zones = ["us-east-1a", "us-east-1b"]
@@ -11,5 +10,9 @@ vpc_enable_nat_gateway = true
 vpc_single_nat_gateway = true
 aws_region = "us-east-1"
 instance_type = "t3.micro"
-instance_keypair = "terraform-key"
+instance_keypair = "alb-2"
 private_instance_count = 2
+db_name = "webappdb"
+db_instance_identifier = "webappdb"
+db_username = "dbadmin"
+db_password = "dbpassword11"
