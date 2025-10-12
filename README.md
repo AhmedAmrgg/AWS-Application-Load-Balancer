@@ -77,7 +77,11 @@ terraform-alb-project/
 ├── README.md
 └── modules/
 ```
+
+## 🏗️ Architecture Diagram
+
 ![Architecture Diagram](apps/final alb.drawio.png)
+
 
 ## 🚀 Deployment Steps
 ## 1️⃣ Clone the Repository
