@@ -120,11 +120,11 @@ http://<alb-dns-name>/login
 ```
 
 ## 🧠 Key Learnings
-✅ Using Terraform AWS modules for modular, reusable IaC
-✅ Implementing ALB with multiple target groups and path-based routing
-✅ Deploying RDS MySQL in a private subnet for security
-✅ Managing multi-tier infrastructure through code
-✅ Enforcing least privilege with proper security group design
+- ✅ Using Terraform AWS modules for modular, reusable IaC
+- ✅ Implementing ALB with multiple target groups and path-based routing
+- ✅ Deploying RDS MySQL in a private subnet for security
+- ✅ Managing multi-tier infrastructure through code
+- ✅ Enforcing least privilege with proper security group design
 
 ## 📊 Terraform Outputs
 **Output**	                **Description**
