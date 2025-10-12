@@ -80,7 +80,7 @@ terraform-alb-project/
 
 ## 🏗️ Architecture Diagram
 
-![Architecture Diagram](apps/final alb.drawio.png)
+![Architecture Diagram](apps/final-alb-drawio.png)
 
 
 ## 🚀 Deployment Steps
